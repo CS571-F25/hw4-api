@@ -20,12 +20,13 @@ const appBundle = CS571Initializer.init<HW4PublicConfig, CS571DefaultSecretConfi
   skipCors: false
 });
 
-const makeStudent = (stud: any) => new Student(
+const makeStudent = (stud: any, i: number) => new Student(
   stud.name,
   stud.fromWisconsin,
   stud.numCredits,
   stud.major,
-  stud.interests
+  stud.interests,
+  i
 );
 
 const students = JSON.parse(fs.readFileSync(appBundle.config.PUBLIC_CONFIG.STUDENT_INFO_LOC).toString()).map(makeStudent)
